@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class PlayerIdleState : IPlayerState
 {
-    public void Enter()
+    public void Enter(PlayerStateMachine p_stateMachine)
     {
-        throw new System.NotImplementedException();
+
     }
 
-    public void Execute()
+    public void Execute(PlayerStateMachine p_stateMachine)
     {
-        throw new System.NotImplementedException();
+
     }
 
-    public void Exit()
+    public void Exit(PlayerStateMachine p_stateMachine)
     {
-        throw new System.NotImplementedException();
+
     }
 }

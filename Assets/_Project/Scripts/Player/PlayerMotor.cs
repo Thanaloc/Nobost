@@ -2,15 +2,18 @@ using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void Move(Vector2 p_input, float p_speed)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetColliderHeight(float p_height)
     {
-        
+
+    }
+
+    public bool IsGrounded()
+    {
+        return false;
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public interface IPlayerState 
 {
-    public abstract void Enter();
-    public abstract void Execute();
-    public abstract void Exit();
+    void Enter(PlayerStateMachine p_stateMachine);
+    void Execute(PlayerStateMachine p_stateMachine);
+    void Exit(PlayerStateMachine p_stateMachine);
 }
