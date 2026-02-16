@@ -15,8 +15,37 @@ public class PlayerStateMachine : MonoBehaviour
     public PlayerMotor Motor => _Motor;
     public PlayerInputHandler Input => _InputHandler;
 
-    // Les états (instanciés dans Awake)
-    // L'état courant
-    // TransitionTo(IPlayerState p_newState)
-    // Update() appelle _currentState.Execute(this)
+    public IPlayerState IdleState;
+    public IPlayerState WalkState;
+    public IPlayerState CrouchState;
+    public IPlayerState SprintState;
+
+    private IPlayerState _currentState;
+
+    private void Awake()
+    {
+        IdleState = new PlayerIdleState(_IdleData);
+        WalkState = new PlayerWalkState(_WalkData);
+        CrouchState = new PlayerCrouchState(_CrouchData);
+        SprintState = new PlayerSprintState(_SprintData);
+
+        _currentState = IdleState;
+        _currentState.Enter(this);
+    }
+
+    private void Update()
+    {
+        _currentState.Execute(this);
+    }
+
+    public void TransitionTo(IPlayerState p_newState)
+    {
+        if (p_newState.Equals(_currentState))
+            return;
+
+        _currentState.Exit(this);
+        _currentState = p_newState;
+        _currentState.Enter(this);
+    }
+
 }
