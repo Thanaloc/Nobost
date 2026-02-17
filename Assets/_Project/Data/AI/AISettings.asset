@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PatrolSpeed: 4
   WaitTime: 3
+  DetectionRange: 4
+  DetectionAngle: 45

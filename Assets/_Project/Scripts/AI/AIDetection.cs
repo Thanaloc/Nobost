@@ -10,14 +10,16 @@ public class AIDetection : MonoBehaviour
     private bool _isInit = false;
 
     private RaycastHit _raycastHit;
-    private LayerMask _playerLayerMask;
+
+    private Vector3 _playerDirection = new();
+    private Vector3 _eyePos = new();
+    private Vector3 _playerCenter = new();
 
 
     public void Initialize(AISettingsSO p_settings)
     {
         _playerTransform = _PlayerRef.PlayerTransform;
         _settings = p_settings;
-        _playerLayerMask = LayerMask.GetMask("Player");
         _isInit = true;
     }
 
@@ -26,19 +28,20 @@ public class AIDetection : MonoBehaviour
         if (!_isInit)
             return;
 
-        if (Vector3.Distance(transform.position, _playerTransform.position) <= _settings.DetectionRange && 
-            Vector3.Angle(transform.forward, _playerTransform.position) <= _settings.DetectionAngle)
-        {
-            if (Physics.Raycast(transform.position, transform.forward, out _raycastHit, Mathf.Infinity, _playerLayerMask))
+        _eyePos = transform.position + Vector3.up * 1.0f;
+        _playerCenter = _playerTransform.position + Vector3.up * 1.0f;
 
+        _playerDirection = (_playerCenter - _eyePos).normalized;
+
+        if (Vector3.Distance(_eyePos, _playerCenter) <= _settings.DetectionRange &&
+            Vector3.Angle(transform.forward, _playerDirection) <= _settings.DetectionAngle)
+        {
+            if (Physics.Raycast(_eyePos, _playerDirection, out _raycastHit, _settings.DetectionRange))
             {
-                Debug.DrawRay(transform.position, transform.forward * _raycastHit.distance, Color.yellow);
-                Debug.Log("Did Hit player");
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, transform.forward * 1000, Color.white);
-                Debug.Log("Did not Hit player");
+                if (_raycastHit.transform == _playerTransform)
+                {
+                    Debug.Log("Did Hit player");
+                }
             }
         }
     }

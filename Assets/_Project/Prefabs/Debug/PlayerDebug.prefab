@@ -214,6 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CharacterController: {fileID: 2945193182590306545}
   _CameraHolder: {fileID: 3245299884890344035}
+  _PlayerRef: {fileID: 11400000, guid: 290f09a2087bfb9409033271c820a5b0, type: 2}
 --- !u!114 &6915880413713418902
 MonoBehaviour:
   m_ObjectHideFlags: 0

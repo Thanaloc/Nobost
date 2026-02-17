@@ -8,6 +8,6 @@ public class AISettingsSO : ScriptableObject
     public float WaitTime = 3.0f;
 
     [Header("Vision")]
-    public float DetectionRange = 1.0f;
+    public float DetectionRange = 15.0f;
     public float DetectionAngle = 45f;
 }
