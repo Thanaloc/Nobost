@@ -6,6 +6,7 @@ public class AIPatrolState : IAIState
     private AISettingsSO _data;
 
     private IEnumerator _agentMoveCoroutine;
+    private int _currentPatrolIndex = 0;
 
     public AIPatrolState(AISettingsSO p_data)
     {
@@ -34,10 +35,9 @@ public class AIPatrolState : IAIState
 
     private IEnumerator AgentMoveRoutine(AIPatrolStateMachine p_patrolStateMachine)
     {
-        int i = 0;
         while (true)
         {
-            p_patrolStateMachine.Agent.SetDestination(p_patrolStateMachine.Waypoints[i].position);
+            p_patrolStateMachine.Agent.SetDestination(p_patrolStateMachine.Waypoints[_currentPatrolIndex].position);
 
             yield return null;
 
@@ -46,7 +46,7 @@ public class AIPatrolState : IAIState
 
             yield return new WaitForSeconds(_data.WaitTime);
 
-            i = (i + 1) % p_patrolStateMachine.Waypoints.Length;
+            _currentPatrolIndex = (_currentPatrolIndex + 1) % p_patrolStateMachine.Waypoints.Length;
         }
     }
 
