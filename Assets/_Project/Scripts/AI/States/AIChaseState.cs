@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class AIChaseState : IAIState
 {
-    private PlayerStateDataSO _data;
+    private AISettingsSO _data;
 
-    public AIChaseState(PlayerStateDataSO p_data)
+    public AIChaseState(AISettingsSO p_data)
     {
         _data = p_data;
     }

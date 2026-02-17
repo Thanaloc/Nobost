@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class AIPatrolState : IAIState
 {
-    private PlayerStateDataSO _data;
+    private AISettingsSO _data;
 
-    public AIPatrolState(PlayerStateDataSO p_data)
+    public AIPatrolState(AISettingsSO p_data)
     {
         _data = p_data;
     }

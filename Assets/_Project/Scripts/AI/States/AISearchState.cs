@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class AISearchState : IAIState
 {
-    private PlayerStateDataSO _data;
+    private AISettingsSO _data;
 
-    public AISearchState(PlayerStateDataSO p_data)
+    public AISearchState(AISettingsSO p_data)
     {
         _data = p_data;
     }

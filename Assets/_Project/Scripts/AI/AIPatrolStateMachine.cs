@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -22,6 +23,16 @@ public class AIPatrolStateMachine : MonoBehaviour
 
     private IEnumerator _agentCoroutine;
 
+    private void Awake()
+    {
+        _patrolState = new AIPatrolState(_AIConfig);
+        _searchState = new AISearchState(_AIConfig);
+        _chaseState = new AIChaseState(_AIConfig);
+
+        _currentState = PatrolState;
+        _currentState.Enter(this);
+    }
+
     private void Start()
     {
         _AIDetection.Initialize(_AIConfig);
@@ -29,7 +40,10 @@ public class AIPatrolStateMachine : MonoBehaviour
         _agentCoroutine = AgentMoveRoutine();
         StartCoroutine(_agentCoroutine);
     }
-
+    private void Update()
+    {
+        _currentState.Execute(this);
+    }
 
     private IEnumerator AgentMoveRoutine()
     {
