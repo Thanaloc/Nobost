@@ -22,7 +22,7 @@ public class PlayerWalkState : IPlayerState
             return;
         }
 
-        else if (p_stateMachine.Input.MoveInput.sqrMagnitude > .1f && p_stateMachine.Input.SprintPressed)
+        if (p_stateMachine.Input.MoveInput.sqrMagnitude > .1f && p_stateMachine.Input.SprintPressed)
         {
             p_stateMachine.TransitionTo(p_stateMachine.SprintState);
             return;

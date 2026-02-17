@@ -15,19 +15,24 @@ public class PlayerStateMachine : MonoBehaviour
     public PlayerMotor Motor => _Motor;
     public PlayerInputHandler Input => _InputHandler;
 
-    public IPlayerState IdleState;
-    public IPlayerState WalkState;
-    public IPlayerState CrouchState;
-    public IPlayerState SprintState;
+    public IPlayerState IdleState => _idleState;
+    public IPlayerState WalkState => _walkState;
+    public IPlayerState CrouchState => _crouchState;
+    public IPlayerState SprintState => _sprintState;
+    public IPlayerState CurrentState => _currentState;  
 
     private IPlayerState _currentState;
+    private IPlayerState _idleState;
+    private IPlayerState _walkState;
+    private IPlayerState _crouchState;
+    private IPlayerState _sprintState;
 
     private void Awake()
     {
-        IdleState = new PlayerIdleState(_IdleData);
-        WalkState = new PlayerWalkState(_WalkData);
-        CrouchState = new PlayerCrouchState(_CrouchData);
-        SprintState = new PlayerSprintState(_SprintData);
+        _idleState = new PlayerIdleState(_IdleData);
+        _walkState = new PlayerWalkState(_WalkData);
+        _crouchState = new PlayerCrouchState(_CrouchData);
+        _sprintState = new PlayerSprintState(_SprintData);
 
         _currentState = IdleState;
         _currentState.Enter(this);

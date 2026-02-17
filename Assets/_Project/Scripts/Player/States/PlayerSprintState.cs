@@ -12,12 +12,29 @@ public class PlayerSprintState : IPlayerState
 
     public void Enter(PlayerStateMachine p_stateMachine)
     {
-
+        p_stateMachine.Motor.SetColliderHeight(_data.ColliderHeight);
     }
 
     public void Execute(PlayerStateMachine p_stateMachine)
     {
+        if (!p_stateMachine.Input.SprintPressed && p_stateMachine.Input.MoveInput.sqrMagnitude == 0)
+        {
+            p_stateMachine.TransitionTo(p_stateMachine.IdleState);
+            return;
+        }
 
+        if (!p_stateMachine.Input.SprintPressed && p_stateMachine.Input.CrouchPressed)
+        {
+            p_stateMachine.TransitionTo(p_stateMachine.CrouchState);
+            return;
+        }
+
+        if (!p_stateMachine.Input.SprintPressed && p_stateMachine.Input.MoveInput.sqrMagnitude > 0.1f)
+        {
+            p_stateMachine.TransitionTo(p_stateMachine.WalkState);
+            return;
+        }
+        
     }
 
     public void Exit(PlayerStateMachine p_stateMachine)

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerIdleState : IPlayerState
@@ -20,16 +19,19 @@ public class PlayerIdleState : IPlayerState
         if (p_stateMachine.Input.CrouchPressed)
         {
             p_stateMachine.TransitionTo(p_stateMachine.CrouchState);
+            return;
+        }
+
+        if (p_stateMachine.Input.SprintPressed)
+        {
+            p_stateMachine.TransitionTo(p_stateMachine.SprintState);
+            return;
         }
 
         if (p_stateMachine.Input.MoveInput.sqrMagnitude > .1f)
         {
             p_stateMachine.TransitionTo(p_stateMachine.WalkState);
-        }
-
-        else if (p_stateMachine.Input.MoveInput.sqrMagnitude > .1f && p_stateMachine.Input.SprintPressed)
-        {
-            p_stateMachine.TransitionTo(p_stateMachine.SprintState);
+            return;
         }
 
     }
