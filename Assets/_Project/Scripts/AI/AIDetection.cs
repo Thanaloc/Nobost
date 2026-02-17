@@ -15,6 +15,8 @@ public class AIDetection : MonoBehaviour
     private Vector3 _eyePos = new();
     private Vector3 _playerCenter = new();
 
+    public bool IsPlayerDetected = false;
+
 
     public void Initialize(AISettingsSO p_settings)
     {
@@ -41,8 +43,17 @@ public class AIDetection : MonoBehaviour
                 if (_raycastHit.transform == _playerTransform)
                 {
                     Debug.Log("Did Hit player");
+                    IsPlayerDetected = true;
+                }
+
+                else
+                {
+                    IsPlayerDetected = false;
                 }
             }
         }
+
+        else
+            IsPlayerDetected = false;
     }
 }
