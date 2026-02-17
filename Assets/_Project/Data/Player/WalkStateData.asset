@@ -15,5 +15,5 @@ MonoBehaviour:
   MoveSpeed: 5
   ColliderHeight: 2
   NoiseMultiplier: 0
-  CameraHeight: 0
+  CameraHeight: 1.6
   CameraTransitionSpeed: 0

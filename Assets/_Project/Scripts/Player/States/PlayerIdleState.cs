@@ -12,6 +12,7 @@ public class PlayerIdleState : IPlayerState
     public void Enter(PlayerStateMachine p_stateMachine)
     {
         p_stateMachine.Motor.SetColliderHeight(_data.ColliderHeight);
+        p_stateMachine.Motor.SetCameraHeight(_data.CameraHeight);
     }
 
     public void Execute(PlayerStateMachine p_stateMachine)

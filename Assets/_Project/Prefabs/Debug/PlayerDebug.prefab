@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CharacterController: {fileID: 2945193182590306545}
+  _CameraHolder: {fileID: 3245299884890344035}
 --- !u!114 &6915880413713418902
 MonoBehaviour:
   m_ObjectHideFlags: 0

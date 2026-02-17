@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMotor : MonoBehaviour
 {
     [SerializeField] private CharacterController _CharacterController;
+    [SerializeField] private Transform _CameraHolder;
 
     private float _verticalVelocity = 0f;
     private Vector3 _direction = new();
@@ -26,6 +27,11 @@ public class PlayerMotor : MonoBehaviour
     {
         _CharacterController.center = new Vector3(0, p_height / 2f, 0);
         _CharacterController.height = p_height;
+    }
+
+    public void SetCameraHeight(float p_height)
+    {
+        _CameraHolder.localPosition = new Vector3(0, p_height, 0);
     }
 
     public bool IsGrounded()
