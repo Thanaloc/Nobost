@@ -2,7 +2,15 @@ using UnityEngine;
 
 public class AIDetection : MonoBehaviour
 {
+    public enum PlayerDetectionState
+    {
+        Detected,
+        Lost
+    }
+
     [SerializeField] private PlayerRefSO _PlayerRef;
+    [SerializeField] private GameEvent _OnPlayerDetected;
+    [SerializeField] private GameEvent _OnPlayerLost;
 
     private Transform _playerTransform;
     private AISettingsSO _settings;
@@ -16,6 +24,8 @@ public class AIDetection : MonoBehaviour
     private Vector3 _playerCenter = new();
 
     public bool IsPlayerDetected = false;
+
+    private PlayerDetectionState _currentState = PlayerDetectionState.Lost;
 
 
     public void Initialize(AISettingsSO p_settings)
@@ -42,18 +52,35 @@ public class AIDetection : MonoBehaviour
             {
                 if (_raycastHit.transform == _playerTransform)
                 {
-                    Debug.Log("Did Hit player");
-                    IsPlayerDetected = true;
+                    if (_currentState == PlayerDetectionState.Lost)
+                    {
+                        _OnPlayerDetected.Raise();
+                        _currentState = PlayerDetectionState.Detected;
+                        IsPlayerDetected = true;
+                    }
+
                 }
 
                 else
                 {
-                    IsPlayerDetected = false;
+                    if (_currentState == PlayerDetectionState.Detected)
+                    {
+                        _OnPlayerLost.Raise();
+                        _currentState = PlayerDetectionState.Lost;
+                        IsPlayerDetected = false;
+                    }
                 }
             }
         }
 
         else
-            IsPlayerDetected = false;
+        {
+            if (_currentState == PlayerDetectionState.Detected)
+            {
+                _OnPlayerLost.Raise();
+                _currentState = PlayerDetectionState.Lost;
+                IsPlayerDetected = false;
+            }
+        }
     }
 }
