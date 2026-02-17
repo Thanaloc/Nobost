@@ -16,12 +16,17 @@ public class AIPatrolStateMachine : MonoBehaviour
     public IAIState ChaseState => _chaseState;
     public IAIState SearchState => _searchState;
 
+    public NavMeshAgent Agent => _Agent;
+    public AIDetection AIDetector => _AIDetection;
+
+    public Transform[] Waypoints => _Waypoints;
+
+    public Vector3 LastKnowPlayerPosition = new();
+
     private IAIState _currentState;
     private IAIState _patrolState;
     private IAIState _chaseState;
     private IAIState _searchState;
-
-    private IEnumerator _agentCoroutine;
 
     private void Awake()
     {
@@ -36,31 +41,10 @@ public class AIPatrolStateMachine : MonoBehaviour
     private void Start()
     {
         _AIDetection.Initialize(_AIConfig);
-        _Agent.speed = _AIConfig.PatrolSpeed;
-        _agentCoroutine = AgentMoveRoutine();
-        StartCoroutine(_agentCoroutine);
     }
     private void Update()
     {
         _currentState.Execute(this);
-    }
-
-    private IEnumerator AgentMoveRoutine()
-    {
-        int i = 0;
-        while (true)
-        {
-            _Agent.SetDestination(_Waypoints[i].position);
-
-            yield return null;
-
-            while (_Agent.pathPending || _Agent.remainingDistance > 0.2f)
-                yield return null;
-
-            yield return new WaitForSeconds(_AIConfig.WaitTime);
-
-            i = (i + 1) % _Waypoints.Length;
-        }
     }
 
     public void TransitionTo(IAIState p_newState)

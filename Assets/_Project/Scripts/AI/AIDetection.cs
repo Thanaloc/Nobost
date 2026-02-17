@@ -24,6 +24,7 @@ public class AIDetection : MonoBehaviour
     private Vector3 _playerCenter = new();
 
     public bool IsPlayerDetected = false;
+    public Transform PlayerTransform => _playerTransform;
 
     private PlayerDetectionState _currentState = PlayerDetectionState.Lost;
 
