@@ -10,4 +10,8 @@ public class AISettingsSO : ScriptableObject
     [Header("Vision")]
     public float DetectionRange = 15.0f;
     public float DetectionAngle = 45f;
+
+    [Header("Detection State Config")]
+    public float ChaseSpeed = 6.0f;
+    public float SearchTime = 5.0f;
 }

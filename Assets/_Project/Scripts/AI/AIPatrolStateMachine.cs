@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIPatrol : MonoBehaviour
+public class AIPatrolStateMachine : MonoBehaviour
 {
     [SerializeField] private Transform[] _Waypoints;
 
@@ -10,6 +10,15 @@ public class AIPatrol : MonoBehaviour
 
     [SerializeField] private NavMeshAgent _Agent;
     [SerializeField] private AIDetection _AIDetection;
+
+    public IAIState PatrolState => _patrolState;
+    public IAIState ChaseState => _chaseState;
+    public IAIState SearchState => _searchState;
+
+    private IAIState _currentState;
+    private IAIState _patrolState;
+    private IAIState _chaseState;
+    private IAIState _searchState;
 
     private IEnumerator _agentCoroutine;
 
@@ -38,7 +47,15 @@ public class AIPatrol : MonoBehaviour
 
             i = (i + 1) % _Waypoints.Length;
         }
+    }
 
+    public void TransitionTo(IAIState p_newState)
+    {
+        if (p_newState.Equals(_currentState))
+            return;
 
+        _currentState.Exit(this);
+        _currentState = p_newState;
+        _currentState.Enter(this);
     }
 }
