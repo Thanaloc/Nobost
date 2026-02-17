@@ -35,8 +35,8 @@ public class AISearchState : IAIState
     {
         _isSearching = true;
 
-        while (p_stateMachine.Agent.remainingDistance < .2f)
-            yield return new WaitForEndOfFrame();
+        while (p_stateMachine.Agent.remainingDistance > .2f)
+            yield return null;
 
         yield return new WaitForSeconds(_data.SearchTime);
 

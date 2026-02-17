@@ -16,6 +16,7 @@ public class AIDetection : MonoBehaviour
     private AISettingsSO _settings;
 
     private bool _isInit = false;
+    private bool _isPlayerDetected = false;
 
     private RaycastHit _raycastHit;
 
@@ -23,7 +24,7 @@ public class AIDetection : MonoBehaviour
     private Vector3 _eyePos = new();
     private Vector3 _playerCenter = new();
 
-    public bool IsPlayerDetected = false;
+    public bool IsPlayerDetected => _isPlayerDetected;
     public Transform PlayerTransform => _playerTransform;
 
     private PlayerDetectionState _currentState = PlayerDetectionState.Lost;
@@ -57,7 +58,7 @@ public class AIDetection : MonoBehaviour
                     {
                         _OnPlayerDetected.Raise();
                         _currentState = PlayerDetectionState.Detected;
-                        IsPlayerDetected = true;
+                        _isPlayerDetected = true;
                     }
 
                 }
@@ -68,7 +69,7 @@ public class AIDetection : MonoBehaviour
                     {
                         _OnPlayerLost.Raise();
                         _currentState = PlayerDetectionState.Lost;
-                        IsPlayerDetected = false;
+                        _isPlayerDetected = false;
                     }
                 }
             }
@@ -80,7 +81,7 @@ public class AIDetection : MonoBehaviour
             {
                 _OnPlayerLost.Raise();
                 _currentState = PlayerDetectionState.Lost;
-                IsPlayerDetected = false;
+                _isPlayerDetected = false;
             }
         }
     }

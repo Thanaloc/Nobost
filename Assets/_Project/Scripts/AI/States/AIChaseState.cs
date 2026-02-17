@@ -3,6 +3,7 @@ using UnityEngine;
 public class AIChaseState : IAIState
 {
     private AISettingsSO _data;
+    private Vector3 _lastKnownPlayerPos = new();
 
     public AIChaseState(AISettingsSO p_data)
     {
@@ -16,19 +17,21 @@ public class AIChaseState : IAIState
 
     public void Execute(AIPatrolStateMachine p_stateMachine)
     {
+        _lastKnownPlayerPos = p_stateMachine.AIDetector.PlayerTransform.position;
+
         if (!p_stateMachine.AIDetector.IsPlayerDetected)
         {
-            p_stateMachine.LastKnowPlayerPosition = p_stateMachine.AIDetector.PlayerTransform.position;
+            p_stateMachine.SetLastKnownPlayerPos(_lastKnownPlayerPos);
             p_stateMachine.TransitionTo(p_stateMachine.SearchState);
             return;
         }
 
-        p_stateMachine.Agent.SetDestination(p_stateMachine.AIDetector.PlayerTransform.position);
+        p_stateMachine.Agent.SetDestination(_lastKnownPlayerPos);
 
     }
 
     public void Exit(AIPatrolStateMachine p_stateMachine)
     {
-
+        _lastKnownPlayerPos = new();
     }
 }

@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -21,12 +20,14 @@ public class AIPatrolStateMachine : MonoBehaviour
 
     public Transform[] Waypoints => _Waypoints;
 
-    public Vector3 LastKnowPlayerPosition = new();
+    public Vector3 LastKnowPlayerPosition => _lastKnownPlayerPosition;
 
     private IAIState _currentState;
     private IAIState _patrolState;
     private IAIState _chaseState;
     private IAIState _searchState;
+
+    private Vector3 _lastKnownPlayerPosition = new();
 
     private void Awake()
     {
@@ -45,6 +46,11 @@ public class AIPatrolStateMachine : MonoBehaviour
     private void Update()
     {
         _currentState.Execute(this);
+    }
+
+    public void SetLastKnownPlayerPos(Vector3 p_pos)
+    {
+        _lastKnownPlayerPosition= p_pos;
     }
 
     public void TransitionTo(IAIState p_newState)
