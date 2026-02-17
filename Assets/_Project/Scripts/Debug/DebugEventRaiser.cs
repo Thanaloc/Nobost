@@ -12,6 +12,6 @@ public class DebugEventRaiser : MonoBehaviour
 
     public void DebugLog()
     {
-        Debug.Log("received");
+
     }
 }
