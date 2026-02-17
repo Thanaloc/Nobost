@@ -9,11 +9,13 @@ public class AIPatrol : MonoBehaviour
     [SerializeField] private AISettingsSO _AIConfig;
 
     [SerializeField] private NavMeshAgent _Agent;
+    [SerializeField] private AIDetection _AIDetection;
 
     private IEnumerator _agentCoroutine;
 
     private void Start()
     {
+        _AIDetection.Initialize(_AIConfig);
         _Agent.speed = _AIConfig.PatrolSpeed;
         _agentCoroutine = AgentMoveRoutine();
         StartCoroutine(_agentCoroutine);

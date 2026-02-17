@@ -2757,6 +2757,7 @@ GameObject:
   - component: {fileID: 1859210306}
   - component: {fileID: 1859210305}
   - component: {fileID: 1859210304}
+  - component: {fileID: 1859210310}
   m_Layer: 0
   m_Name: Ennemy
   m_TagString: Untagged
@@ -2784,6 +2785,7 @@ MonoBehaviour:
   - {fileID: 481075500}
   _AIConfig: {fileID: 11400000, guid: 31b7f4bc1181e1548af7cf5330ccf95c, type: 2}
   _Agent: {fileID: 1859210305}
+  _AIDetection: {fileID: 1859210310}
 --- !u!195 &1859210305
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2897,6 +2899,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1859210310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859210303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc662dfbcc18ac44a978fb77372b55d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _PlayerRef: {fileID: 11400000, guid: 290f09a2087bfb9409033271c820a5b0, type: 2}
 --- !u!1001 &1889485809
 PrefabInstance:
   m_ObjectHideFlags: 0

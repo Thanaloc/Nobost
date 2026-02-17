@@ -4,10 +4,20 @@ public class PlayerMotor : MonoBehaviour
 {
     [SerializeField] private CharacterController _CharacterController;
     [SerializeField] private Transform _CameraHolder;
+    [SerializeField] private PlayerRefSO _PlayerRef;
 
     private float _verticalVelocity = 0f;
     private Vector3 _direction = new();
 
+    private void Awake()
+    {
+        _PlayerRef.PlayerTransform = transform;
+    }
+
+    private void OnDisable()
+    {
+        _PlayerRef.PlayerTransform = null;
+    }
 
     private void Update()
     {
