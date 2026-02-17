@@ -12,6 +12,7 @@ public class PlayerWalkState : IPlayerState
     public void Enter(PlayerStateMachine p_stateMachine)
     {
         p_stateMachine.Motor.SetColliderHeight(_data.ColliderHeight);
+
     }
 
     public void Execute(PlayerStateMachine p_stateMachine)

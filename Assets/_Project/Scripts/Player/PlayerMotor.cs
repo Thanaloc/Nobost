@@ -2,15 +2,11 @@ using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour
 {
-    private CharacterController _characterController;
+    [SerializeField] private CharacterController _CharacterController;
 
     private float _verticalVelocity = 0f;
     private Vector3 _direction = new();
 
-    private void Awake()
-    {
-        _characterController = GetComponent<CharacterController>();
-    }
 
     private void Update()
     {
@@ -28,12 +24,13 @@ public class PlayerMotor : MonoBehaviour
 
     public void SetColliderHeight(float p_height)
     {
-        _characterController.center = new Vector3(0, p_height / 2f, 0);
+        _CharacterController.center = new Vector3(0, p_height / 2f, 0);
+        _CharacterController.height = p_height;
     }
 
     public bool IsGrounded()
     {
-        return _characterController.isGrounded;
+        return _CharacterController.isGrounded;
     }
 
     private void ApplyGravity()
@@ -48,7 +45,7 @@ public class PlayerMotor : MonoBehaviour
 
     private void ApplyMovement()
     {
-        _characterController.Move(_direction * Time.deltaTime);
+        _CharacterController.Move(_direction * Time.deltaTime);
         _direction.x = _direction.z = 0f;
     }
 }

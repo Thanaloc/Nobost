@@ -13,6 +13,7 @@ public class PlayerSprintState : IPlayerState
     public void Enter(PlayerStateMachine p_stateMachine)
     {
         p_stateMachine.Motor.SetColliderHeight(_data.ColliderHeight);
+
     }
 
     public void Execute(PlayerStateMachine p_stateMachine)
@@ -34,7 +35,9 @@ public class PlayerSprintState : IPlayerState
             p_stateMachine.TransitionTo(p_stateMachine.WalkState);
             return;
         }
-        
+
+        p_stateMachine.Motor.Move(p_stateMachine.Input.MoveInput, _data.MoveSpeed);
+
     }
 
     public void Exit(PlayerStateMachine p_stateMachine)
