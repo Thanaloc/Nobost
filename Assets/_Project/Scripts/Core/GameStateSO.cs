@@ -9,10 +9,11 @@ public class GameStateSO : ScriptableObject
         Menu,
         Playing,
         Paused,
-        GameOver
+        GameOver,
+        Default
     }
 
-    private GameState _currentState;
+    private GameState _currentState = GameState.Default;
 
     public GameState CurrentState => _currentState;
     public Action<GameState> OnStateChanged;

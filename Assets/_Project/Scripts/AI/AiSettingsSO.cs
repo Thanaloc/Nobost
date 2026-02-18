@@ -14,4 +14,5 @@ public class AISettingsSO : ScriptableObject
     [Header("Detection State Config")]
     public float ChaseSpeed = 6.0f;
     public float SearchTime = 5.0f;
+    public float CatchDistance = 1.0f;
 }

@@ -28,6 +28,10 @@ public class AIChaseState : IAIState
 
         p_stateMachine.Agent.SetDestination(_lastKnownPlayerPos);
 
+        if (Vector3.Distance(p_stateMachine.Agent.transform.position, _lastKnownPlayerPos) <= _data.CatchDistance)
+        {
+            p_stateMachine.AIDetector.OnPlayerCaught.Raise();
+        }
     }
 
     public void Exit(AIPatrolStateMachine p_stateMachine)

@@ -9,13 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6019dba440b7e14faa9a65d2290e924, type: 3}
-  m_Name: AISettings
+  m_Script: {fileID: 11500000, guid: 32b827765efd573429d74546f166c3e7, type: 3}
+  m_Name: OnPlayerCaught
   m_EditorClassIdentifier: 
-  PatrolSpeed: 4
-  WaitTime: 3
-  DetectionRange: 4
-  DetectionAngle: 45
-  ChaseSpeed: 6
-  SearchTime: 5
-  CatchDistance: 1.7

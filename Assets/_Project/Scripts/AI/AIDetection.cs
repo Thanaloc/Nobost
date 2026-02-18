@@ -11,6 +11,7 @@ public class AIDetection : MonoBehaviour
     [SerializeField] private PlayerRefSO _PlayerRef;
     [SerializeField] private GameEvent _OnPlayerDetected;
     [SerializeField] private GameEvent _OnPlayerLost;
+    [SerializeField] private GameEvent _OnPlayerCaught;
 
     private Transform _playerTransform;
     private AISettingsSO _settings;
@@ -23,12 +24,12 @@ public class AIDetection : MonoBehaviour
     private Vector3 _playerDirection = new();
     private Vector3 _eyePos = new();
     private Vector3 _playerCenter = new();
+    private PlayerDetectionState _currentState = PlayerDetectionState.Lost;
 
     public bool IsPlayerDetected => _isPlayerDetected;
     public Transform PlayerTransform => _playerTransform;
 
-    private PlayerDetectionState _currentState = PlayerDetectionState.Lost;
-
+    public GameEvent OnPlayerCaught => _OnPlayerCaught;
 
     public void Initialize(AISettingsSO p_settings)
     {
@@ -85,4 +86,5 @@ public class AIDetection : MonoBehaviour
             }
         }
     }
+
 }
