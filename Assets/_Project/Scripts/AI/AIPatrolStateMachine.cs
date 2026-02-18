@@ -14,6 +14,8 @@ public class AIPatrolStateMachine : MonoBehaviour
     public IAIState PatrolState => _patrolState;
     public IAIState ChaseState => _chaseState;
     public IAIState SearchState => _searchState;
+    public IAIState PlayerCaughtState => _playerCaughtState;
+    public IAIState CurrentState => _currentState;
 
     public NavMeshAgent Agent => _Agent;
     public AIDetection AIDetector => _AIDetection;
@@ -26,6 +28,7 @@ public class AIPatrolStateMachine : MonoBehaviour
     private IAIState _patrolState;
     private IAIState _chaseState;
     private IAIState _searchState;
+    private IAIState _playerCaughtState;
 
     private Vector3 _lastKnownPlayerPosition = new();
 
@@ -34,6 +37,7 @@ public class AIPatrolStateMachine : MonoBehaviour
         _patrolState = new AIPatrolState(_AIConfig);
         _searchState = new AISearchState(_AIConfig);
         _chaseState = new AIChaseState(_AIConfig);
+        _playerCaughtState = new AIPlayerCaughtState(_AIConfig);
 
         _currentState = PatrolState;
         _currentState.Enter(this);
@@ -50,7 +54,7 @@ public class AIPatrolStateMachine : MonoBehaviour
 
     public void SetLastKnownPlayerPos(Vector3 p_pos)
     {
-        _lastKnownPlayerPosition= p_pos;
+        _lastKnownPlayerPosition = p_pos;
     }
 
     public void TransitionTo(IAIState p_newState)
