@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverHandler : MonoBehaviour
+public class EndGameHandler : MonoBehaviour
 {
     [SerializeField] private GameStateSO _GameState;
     [SerializeField] private GameObject _CanvasGameOver;
+    [SerializeField] private GameObject _CanvasVictory;
 
-    private bool _isGameOver = false;
+    private bool _isEndGame = false;
 
     private void OnEnable()
     {
@@ -20,22 +21,33 @@ public class GameOverHandler : MonoBehaviour
 
     private void OnNewState(GameStateSO.GameState p_newState)
     {
-        if (p_newState.Equals(GameStateSO.GameState.GameOver))
+        switch (p_newState)
         {
-            _CanvasGameOver.SetActive(true);
+            case GameStateSO.GameState.GameOver:
+                _CanvasGameOver.SetActive(true);
+                _isEndGame = true;
+                break;
+
+            case GameStateSO.GameState.Victory:
+                _CanvasVictory.SetActive(true);
+                _isEndGame = true;
+                break;
+        }
+
+        if (_isEndGame)
+        {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
-            _isGameOver = true;
         }
     }
 
     private void Update()
     {
-        if (_isGameOver && Input.GetKey(KeyCode.R))
+        if (_isEndGame && Input.GetKey(KeyCode.R))
         {
             Time.timeScale = 1;
-            _isGameOver = false;
+            _isEndGame = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

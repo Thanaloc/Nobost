@@ -200,7 +200,6 @@ GameObject:
   - component: {fileID: 63581310}
   - component: {fileID: 63581309}
   - component: {fileID: 63581311}
-  - component: {fileID: 63581312}
   m_Layer: 0
   m_Name: GameStateManager
   m_TagString: Untagged
@@ -250,19 +249,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _GameState: {fileID: 11400000, guid: 0d5d4804ab1af2943b77a7c650c8757a, type: 2}
   _CanvasGameOver: {fileID: 685848038}
---- !u!114 &63581312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 63581308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96e4d4e7169d74942a3ef0fa96bfd084, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _GameState: {fileID: 11400000, guid: 0d5d4804ab1af2943b77a7c650c8757a, type: 2}
   _CanvasVictory: {fileID: 476641552}
 --- !u!1001 &94068880
 PrefabInstance:
