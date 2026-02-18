@@ -5,7 +5,6 @@ public class VictoryHandler : MonoBehaviour
 {
     [SerializeField] private GameStateSO _GameState;
     [SerializeField] private GameObject _CanvasVictory;
-    [SerializeField] private GameEvent _VictoryGameEvent;
 
     private bool _isVictory = false;
 
@@ -39,10 +38,5 @@ public class VictoryHandler : MonoBehaviour
             _isVictory = false;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-    }
-
-    private void OnTriggerEnter(Collider p_other)
-    {
-        _VictoryGameEvent.Raise();
     }
 }
