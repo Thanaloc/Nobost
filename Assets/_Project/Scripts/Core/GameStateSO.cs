@@ -9,7 +9,8 @@ public class GameStateSO : ScriptableObject
         Menu,
         Playing,
         Paused,
-        GameOver
+        GameOver,
+        Victory
     }
 
     private GameState _currentState = GameState.Playing;

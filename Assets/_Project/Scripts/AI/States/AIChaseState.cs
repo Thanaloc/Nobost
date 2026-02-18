@@ -33,8 +33,8 @@ public class AIChaseState : IAIState
             if (p_stateMachine.CurrentState.Equals(p_stateMachine.PlayerCaughtState))
                 return;
 
-            p_stateMachine.TransitionTo(p_stateMachine.PlayerCaughtState);
             p_stateMachine.AIDetector.OnPlayerCaught.Raise();
+            p_stateMachine.TransitionTo(p_stateMachine.PlayerCaughtState);
         }
     }
 
