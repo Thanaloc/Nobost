@@ -6,7 +6,7 @@ public class PlayerNoiseEmitter : MonoBehaviour
     [SerializeField] private PlayerRefSO _PlayerRef;
     public float NoiseRadius => _noiseRadius;
 
-    private float _noiseRadius = 1f;
+    private float _noiseRadius = 0f;
 
     private void OnEnable()
     {
@@ -27,5 +27,6 @@ public class PlayerNoiseEmitter : MonoBehaviour
     public void OnPlayerStateChanged()
     {
         _noiseRadius = _PlayerStateMachine.CurrentState.GetNoiseMultiplier();
+        _PlayerRef.NoiseRadius = _noiseRadius;
     }
 }

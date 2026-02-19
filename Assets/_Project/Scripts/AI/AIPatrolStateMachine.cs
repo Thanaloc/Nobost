@@ -21,11 +21,8 @@ public class AIPatrolStateMachine : MonoBehaviour
     public NavMeshAgent Agent => _Agent;
     public AIDetection AIDetector => _AIDetection;
     public AIHearing AIHearer => _AIHearing;
-
     public Transform[] Waypoints => _Waypoints;
-
     public Vector3 LastKnowPlayerPosition => _lastKnownPlayerPosition;
-    public Vector3 LastKnownSoundPosition => _lastKnownSoundPosition;
 
     private IAIState _currentState;
     private IAIState _patrolState;
@@ -34,7 +31,6 @@ public class AIPatrolStateMachine : MonoBehaviour
     private IAIState _playerCaughtState;
 
     private Vector3 _lastKnownPlayerPosition = new();
-    private Vector3 _lastKnownSoundPosition = new();
 
     private void Awake()
     {

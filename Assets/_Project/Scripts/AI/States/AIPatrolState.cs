@@ -31,6 +31,11 @@ public class AIPatrolState : IAIState
             p_stateMachine.TransitionTo(p_stateMachine.ChaseState);
             return;
         }
+
+        if (p_stateMachine.AIHearer.IsPlayerHeard)
+        {
+            p_stateMachine.TransitionTo(p_stateMachine.SearchState);
+        }
     }
 
     private IEnumerator AgentMoveRoutine(AIPatrolStateMachine p_patrolStateMachine)
