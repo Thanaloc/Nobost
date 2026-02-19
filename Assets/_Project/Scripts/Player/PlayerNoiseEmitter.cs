@@ -26,6 +26,6 @@ public class PlayerNoiseEmitter : MonoBehaviour
     //called by game event "PlayerStateChanged" response 
     public void OnPlayerStateChanged()
     {
-        _noiseRadius = _noiseRadius * _PlayerStateMachine.CurrentState.GetNoiseMultiplier();
+        _noiseRadius = _PlayerStateMachine.CurrentState.GetNoiseMultiplier();
     }
 }

@@ -10,16 +10,17 @@ public class AIPatrolStateMachine : MonoBehaviour
 
     [SerializeField] private NavMeshAgent _Agent;
     [SerializeField] private AIDetection _AIDetection;
+    [SerializeField] private AIHearing _AIHearing;
 
     public IAIState PatrolState => _patrolState;
     public IAIState ChaseState => _chaseState;
     public IAIState SearchState => _searchState;
-    public IAIState SearchSoundState => _searchSoundState;
     public IAIState PlayerCaughtState => _playerCaughtState;
     public IAIState CurrentState => _currentState;
 
     public NavMeshAgent Agent => _Agent;
     public AIDetection AIDetector => _AIDetection;
+    public AIHearing AIHearer => _AIHearing;
 
     public Transform[] Waypoints => _Waypoints;
 
@@ -30,7 +31,6 @@ public class AIPatrolStateMachine : MonoBehaviour
     private IAIState _patrolState;
     private IAIState _chaseState;
     private IAIState _searchState;
-    private IAIState _searchSoundState;
     private IAIState _playerCaughtState;
 
     private Vector3 _lastKnownPlayerPosition = new();
@@ -40,7 +40,6 @@ public class AIPatrolStateMachine : MonoBehaviour
     {
         _patrolState = new AIPatrolState(_AIConfig);
         _searchState = new AISearchState(_AIConfig);
-        _searchSoundState = new AISearchSoundState(_AIConfig);
         _chaseState = new AIChaseState(_AIConfig);
         _playerCaughtState = new AIPlayerCaughtState(_AIConfig);
 

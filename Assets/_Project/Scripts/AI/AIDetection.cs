@@ -5,8 +5,7 @@ public class AIDetection : MonoBehaviour
     public enum PlayerDetectionState
     {
         Detected,
-        Lost,
-        Heard
+        Lost
     }
 
     [SerializeField] private PlayerRefSO _PlayerRef;
@@ -19,7 +18,6 @@ public class AIDetection : MonoBehaviour
 
     private bool _isInit = false;
     private bool _isPlayerDetected = false;
-    private bool _isPlayerHeard = false;
 
     private RaycastHit _raycastHit;
 
@@ -29,7 +27,6 @@ public class AIDetection : MonoBehaviour
     private PlayerDetectionState _currentState = PlayerDetectionState.Lost;
 
     public bool IsPlayerDetected => _isPlayerDetected;
-    public bool IsPlayerHeard => _isPlayerHeard;
     public Transform PlayerTransform => _playerTransform;
 
     public GameEvent OnPlayerCaught => _OnPlayerCaught;
