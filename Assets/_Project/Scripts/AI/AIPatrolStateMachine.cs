@@ -14,6 +14,7 @@ public class AIPatrolStateMachine : MonoBehaviour
     public IAIState PatrolState => _patrolState;
     public IAIState ChaseState => _chaseState;
     public IAIState SearchState => _searchState;
+    public IAIState SearchSoundState => _searchSoundState;
     public IAIState PlayerCaughtState => _playerCaughtState;
     public IAIState CurrentState => _currentState;
 
@@ -23,19 +24,23 @@ public class AIPatrolStateMachine : MonoBehaviour
     public Transform[] Waypoints => _Waypoints;
 
     public Vector3 LastKnowPlayerPosition => _lastKnownPlayerPosition;
+    public Vector3 LastKnownSoundPosition => _lastKnownSoundPosition;
 
     private IAIState _currentState;
     private IAIState _patrolState;
     private IAIState _chaseState;
     private IAIState _searchState;
+    private IAIState _searchSoundState;
     private IAIState _playerCaughtState;
 
     private Vector3 _lastKnownPlayerPosition = new();
+    private Vector3 _lastKnownSoundPosition = new();
 
     private void Awake()
     {
         _patrolState = new AIPatrolState(_AIConfig);
         _searchState = new AISearchState(_AIConfig);
+        _searchSoundState = new AISearchSoundState(_AIConfig);
         _chaseState = new AIChaseState(_AIConfig);
         _playerCaughtState = new AIPlayerCaughtState(_AIConfig);
 

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 10
   ColliderHeight: 2
-  NoiseMultiplier: 0
+  NoiseMultiplier: 15
   CameraHeight: 1.6
   CameraTransitionSpeed: 0

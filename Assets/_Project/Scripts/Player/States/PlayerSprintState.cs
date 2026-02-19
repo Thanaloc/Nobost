@@ -45,4 +45,9 @@ public class PlayerSprintState : IPlayerState
     {
 
     }
+
+    public float GetNoiseMultiplier()
+    {
+        return _data.NoiseMultiplier;
+    }
 }

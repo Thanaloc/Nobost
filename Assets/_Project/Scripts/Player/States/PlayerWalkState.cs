@@ -43,4 +43,9 @@ public class PlayerWalkState : IPlayerState
     {
 
     }
+
+    public float GetNoiseMultiplier()
+    {
+        return _data.NoiseMultiplier;
+    }
 }

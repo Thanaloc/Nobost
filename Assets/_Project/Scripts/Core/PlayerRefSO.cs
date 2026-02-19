@@ -4,4 +4,5 @@ using UnityEngine;
 public class PlayerRefSO : ScriptableObject
 {
     public Transform PlayerTransform;
+    public float NoiseRadius;
 }

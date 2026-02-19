@@ -12,6 +12,9 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] private PlayerStateDataSO _CrouchData;
     [SerializeField] private PlayerStateDataSO _SprintData;
 
+    [Header("GameEvents")]
+    [SerializeField] private GameEvent _ChangedPlayerStateEvent;
+
     public PlayerMotor Motor => _Motor;
     public PlayerInputHandler Input => _InputHandler;
 
@@ -51,6 +54,7 @@ public class PlayerStateMachine : MonoBehaviour
         _currentState.Exit(this);
         _currentState = p_newState;
         _currentState.Enter(this);
+        _ChangedPlayerStateEvent.Raise();
     }
 
 }

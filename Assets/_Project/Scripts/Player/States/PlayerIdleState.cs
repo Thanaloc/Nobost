@@ -41,4 +41,9 @@ public class PlayerIdleState : IPlayerState
     {
 
     }
+
+    public float GetNoiseMultiplier()
+    {
+        return _data.NoiseMultiplier;
+    }
 }
