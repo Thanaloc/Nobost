@@ -41,7 +41,7 @@ public class AIDetection : MonoBehaviour
             return;
 
         _eyePos = transform.position + Vector3.up * _settings.EyeHeight;
-        _playerCenter = _playerTransform.position + Vector3.up * 1.0f;
+        _playerCenter = _playerTransform.position + Vector3.up * _PlayerRef.PlayerEyeHeight;
 
         _playerDirection = (_playerCenter - _eyePos).normalized;
 

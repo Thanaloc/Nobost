@@ -13,15 +13,10 @@ public class GameStateSO : ScriptableObject
         Victory
     }
 
-    private GameState _currentState = GameState.Playing;
+    private GameState _currentState = GameState.Menu;
 
     public GameState CurrentState => _currentState;
     public Action<GameState> OnStateChanged;
-
-    private void OnEnable()
-    {
-        _currentState = GameState.Playing;
-    }
 
     public void SetState(GameState p_newState)
     {
