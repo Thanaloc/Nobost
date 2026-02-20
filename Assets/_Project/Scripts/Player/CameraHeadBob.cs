@@ -7,21 +7,25 @@ public class CameraHeadBob : MonoBehaviour
     [SerializeField] private PlayerRefSO _Player;
 
     private float _timer = 0f;
+    private float _bobOffset = 0f;
+
+    public float BobOffset => _bobOffset;
+
+    private const float LERP_INTERPOLATION = 5f;
 
     private void Update()
     {
-        //if (_CharacterController.velocity.z > .2f)
-        //{
-        //    Debug.Log("bonjour");
-        //    _timer += Time.deltaTime;
-        //}
+        if (_CharacterController.velocity.sqrMagnitude > .1f)
+        {
+            _timer += Time.deltaTime;
+        }
 
-        //else
-        //{
-        //    if (_timer >= 1f)
-        //        _timer -= Time.deltaTime;
-        //}
+        else
+        {
+            _bobOffset = Mathf.Lerp(_bobOffset, 0f, LERP_INTERPOLATION * Time.deltaTime);
+            _timer = 0f;
+        }
 
-        //_CameraHolder.position = new Vector3(_CameraHolder.position.x, _CameraHolder.position.y * Mathf.Sin(_timer * _Player.BobFrequency) * _Player.BobAmplitude, _CameraHolder.position.z);
+        _bobOffset = Mathf.Sin(_timer * _Player.BobFrequency) * _Player.BobAmplitude;
     }
 }

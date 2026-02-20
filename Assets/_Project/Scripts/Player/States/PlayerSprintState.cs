@@ -12,7 +12,7 @@ public class PlayerSprintState : IPlayerState
 
     public void Enter(PlayerStateMachine p_stateMachine)
     {
-        p_stateMachine.Motor.SetTargetFOV(true);
+        p_stateMachine.Motor.SetSprintStateMultipliers(true);
         p_stateMachine.Motor.SetColliderHeight(_data.ColliderHeight);
         p_stateMachine.Motor.SetCameraHeight(_data.CameraHeight);
 
@@ -44,7 +44,7 @@ public class PlayerSprintState : IPlayerState
 
     public void Exit(PlayerStateMachine p_stateMachine)
     {
-        p_stateMachine.Motor.SetTargetFOV(false);
+        p_stateMachine.Motor.SetSprintStateMultipliers(false);
     }
 
     public float GetNoiseMultiplier()

@@ -6,11 +6,13 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField] private Camera _Camera;
     [SerializeField] private Transform _CameraHolder;
     [SerializeField] private PlayerRefSO _PlayerRef;
+    [SerializeField] private CameraHeadBob _HeadBob;
 
     private float _verticalVelocity = 0f;
     private Vector3 _direction = new();
     private const float LERP_INTERPOLATION = 10f;
     private Vector3 _targetHeight = new();
+    private Vector3 _lerpedPos = new();
     private float _targetFOV = 0f;
     private float _defaultFOV = 0f;
 
@@ -56,7 +58,7 @@ public class PlayerMotor : MonoBehaviour
         _targetHeight = new Vector3(0, p_height, 0);
     }
 
-    public void SetTargetFOV(bool p_isSprinting)
+    public void SetSprintStateMultipliers(bool p_isSprinting)
     {
         if (p_isSprinting)
         {
@@ -92,7 +94,8 @@ public class PlayerMotor : MonoBehaviour
 
     private void ApplyCameraHeight()
     {
-        _CameraHolder.localPosition = Vector3.Lerp(_CameraHolder.localPosition, _targetHeight, LERP_INTERPOLATION * Time.deltaTime);
+        _lerpedPos = Vector3.Lerp(_CameraHolder.localPosition, _targetHeight, 10f * Time.deltaTime);
+        _CameraHolder.localPosition = new Vector3(_lerpedPos.x, _lerpedPos.y + _HeadBob.BobOffset, _lerpedPos.z);
     }
 
     private void ApplyTargetFOV()
