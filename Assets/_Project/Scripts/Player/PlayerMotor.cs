@@ -9,8 +9,7 @@ public class PlayerMotor : MonoBehaviour
 
     private float _verticalVelocity = 0f;
     private Vector3 _direction = new();
-    private const float LERP_DURATION = .2f;
-    private const float LERP_DURATION_FOV = .3f;
+    private const float LERP_INTERPOLATION = 10f;
     private Vector3 _targetHeight = new();
     private float _targetFOV = 0f;
     private float _defaultFOV = 0f;
@@ -93,12 +92,12 @@ public class PlayerMotor : MonoBehaviour
 
     private void ApplyCameraHeight()
     {
-        _CameraHolder.localPosition = Vector3.Lerp(_CameraHolder.localPosition, _targetHeight, LERP_DURATION);
+        _CameraHolder.localPosition = Vector3.Lerp(_CameraHolder.localPosition, _targetHeight, LERP_INTERPOLATION * Time.deltaTime);
     }
 
     private void ApplyTargetFOV()
     {
-        _Camera.fieldOfView = Mathf.Lerp(_Camera.fieldOfView, _targetFOV, LERP_DURATION_FOV);
+        _Camera.fieldOfView = Mathf.Lerp(_Camera.fieldOfView, _targetFOV, LERP_INTERPOLATION * Time.deltaTime);
     }
 
 }
