@@ -12,7 +12,7 @@ public class AIHearing : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(transform.position, _PlayerRef.PlayerTransform.position) < _PlayerRef.NoiseRadius)
+        if ((transform.position - _PlayerRef.PlayerTransform.position).sqrMagnitude < _PlayerRef.NoiseRadius * _PlayerRef.NoiseRadius)
         {
             _lastKnownPlayerSound = _PlayerRef.PlayerTransform.position;
             _AIStateMachine.SetLastKnownPlayerPos(_lastKnownPlayerSound);

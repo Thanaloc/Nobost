@@ -12,7 +12,7 @@ public class AlertIndicatorUI : MonoBehaviour
     public void OnPlayerChasedEvent()
     {
         _numberOfChasers++;
-        UpgradeUI();
+        UpdateUI();
     }
 
     //listener inspector player lost game event 
@@ -20,24 +20,24 @@ public class AlertIndicatorUI : MonoBehaviour
     {
         _numberOfChasers--;
         _numberOfSearchers++;
-        UpgradeUI();
+        UpdateUI();
     }
 
     //listener inspector player hidden game event
     public void OnPlayerHiddenEvent()
     {
         _numberOfSearchers--;
-        UpgradeUI();
+        UpdateUI();
     }
 
     //listener inspector player heard game event
     public void OnPlayerHeardEvent()
     {
         _numberOfSearchers++;
-        UpgradeUI();
+        UpdateUI();
     }
 
-    private void UpgradeUI()
+    private void UpdateUI()
     {
         if (_numberOfChasers != 0)
         {

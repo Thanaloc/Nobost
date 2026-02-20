@@ -16,8 +16,6 @@ public class PlayerMotor : MonoBehaviour
     private float _targetFOV = 0f;
     private float _defaultFOV = 0f;
 
-    private bool _isSprinting = false;
-
     private void Awake()
     {
         _PlayerRef.PlayerTransform = transform;
