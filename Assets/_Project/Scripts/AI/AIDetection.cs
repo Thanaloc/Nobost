@@ -11,7 +11,9 @@ public class AIDetection : MonoBehaviour
     [SerializeField] private PlayerRefSO _PlayerRef;
     [SerializeField] private GameEvent _OnPlayerDetected;
     [SerializeField] private GameEvent _OnPlayerLost;
+    [SerializeField] private GameEvent _OnPlayerHidden;
     [SerializeField] private GameEvent _OnPlayerCaught;
+    [SerializeField] private GameEvent _OnPlayerHeard;
 
     private Transform _playerTransform;
     private AISettingsSO _settings;
@@ -30,6 +32,8 @@ public class AIDetection : MonoBehaviour
     public Transform PlayerTransform => _playerTransform;
 
     public GameEvent OnPlayerCaught => _OnPlayerCaught;
+    public GameEvent OnPlayerHidden => _OnPlayerHidden;
+    public GameEvent OnPlayerHeard => _OnPlayerHeard;
 
     public void Initialize(AISettingsSO p_settings)
     {

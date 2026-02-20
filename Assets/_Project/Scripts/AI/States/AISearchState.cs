@@ -27,7 +27,7 @@ public class AISearchState : IAIState
             return;
         }
 
-        if(!_isSearching)
+        if (!_isSearching)
             p_stateMachine.StartCoroutine(_searchCoroutine);
     }
 
@@ -46,6 +46,8 @@ public class AISearchState : IAIState
 
     public void Exit(AIPatrolStateMachine p_stateMachine)
     {
+        p_stateMachine.AIDetector.OnPlayerHidden.Raise();
+
         if (_searchCoroutine != null)
         {
             p_stateMachine.StopCoroutine(_searchCoroutine);

@@ -34,6 +34,7 @@ public class AIPatrolState : IAIState
 
         if (p_stateMachine.AIHearer.IsPlayerHeard)
         {
+            p_stateMachine.AIDetector.OnPlayerHeard.Raise();
             p_stateMachine.TransitionTo(p_stateMachine.SearchState);
         }
     }
