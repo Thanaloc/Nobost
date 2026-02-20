@@ -15,4 +15,7 @@ public class AISettingsSO : ScriptableObject
     public float ChaseSpeed = 6.0f;
     public float SearchTime = 5.0f;
     public float CatchDistance = 1.0f;
+
+    [Header("Ennemy Physics Characteristics")]
+    public float EyeHeight = 1.0f;
 }

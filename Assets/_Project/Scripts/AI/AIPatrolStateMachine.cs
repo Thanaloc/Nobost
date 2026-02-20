@@ -12,6 +12,10 @@ public class AIPatrolStateMachine : MonoBehaviour
     [SerializeField] private AIDetection _AIDetection;
     [SerializeField] private AIHearing _AIHearing;
 
+    [SerializeField] private GameEvent _OnPlayerHidden;
+    [SerializeField] private GameEvent _OnPlayerCaught;
+    [SerializeField] private GameEvent _OnPlayerHeard;
+
     public IAIState PatrolState => _patrolState;
     public IAIState ChaseState => _chaseState;
     public IAIState SearchState => _searchState;
@@ -23,6 +27,10 @@ public class AIPatrolStateMachine : MonoBehaviour
     public AIHearing AIHearer => _AIHearing;
     public Transform[] Waypoints => _Waypoints;
     public Vector3 LastKnowPlayerPosition => _lastKnownPlayerPosition;
+
+    public GameEvent OnPlayerCaught => _OnPlayerCaught;
+    public GameEvent OnPlayerHidden => _OnPlayerHidden;
+    public GameEvent OnPlayerHeard => _OnPlayerHeard;
 
     private IAIState _currentState;
     private IAIState _patrolState;

@@ -710,8 +710,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _AIDetection: {fileID: 1331967414}
   _AISettingsSO: {fileID: 11400000, guid: 31b7f4bc1181e1548af7cf5330ccf95c, type: 2}
-  _Eye1: {fileID: 1803132116}
-  _Eye2: {fileID: 1564931741}
 --- !u!114 &1331967414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,9 +725,6 @@ MonoBehaviour:
   _PlayerRef: {fileID: 11400000, guid: 290f09a2087bfb9409033271c820a5b0, type: 2}
   _OnPlayerDetected: {fileID: 11400000, guid: 21155277423f9854fafbf508c22a94a0, type: 2}
   _OnPlayerLost: {fileID: 11400000, guid: 7579bb7003b37ad4ab3f226aa8d95c70, type: 2}
-  _OnPlayerHidden: {fileID: 11400000, guid: c35d8378a88d93e48992b27e465d38fc, type: 2}
-  _OnPlayerCaught: {fileID: 11400000, guid: e59072964965ee94498e3bf665403ea6, type: 2}
-  _OnPlayerHeard: {fileID: 11400000, guid: de58de414dd329b43a1177bf1f70976e, type: 2}
 --- !u!114 &1331967415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -751,6 +746,9 @@ MonoBehaviour:
   _Agent: {fileID: 1331967416}
   _AIDetection: {fileID: 1331967414}
   _AIHearing: {fileID: 1331967412}
+  _OnPlayerHidden: {fileID: 11400000, guid: c35d8378a88d93e48992b27e465d38fc, type: 2}
+  _OnPlayerCaught: {fileID: 11400000, guid: e59072964965ee94498e3bf665403ea6, type: 2}
+  _OnPlayerHeard: {fileID: 11400000, guid: de58de414dd329b43a1177bf1f70976e, type: 2}
 --- !u!195 &1331967416
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1648,8 +1646,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _AIDetection: {fileID: 6966302041229047502}
   _AISettingsSO: {fileID: 11400000, guid: 31b7f4bc1181e1548af7cf5330ccf95c, type: 2}
-  _Eye1: {fileID: 5912522962859178521}
-  _Eye2: {fileID: 2042854158026359397}
 --- !u!114 &378651556746110849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1754,6 +1750,9 @@ MonoBehaviour:
   _Agent: {fileID: 8729699217169138637}
   _AIDetection: {fileID: 6966302041229047502}
   _AIHearing: {fileID: 8654893968778549871}
+  _OnPlayerHidden: {fileID: 11400000, guid: c35d8378a88d93e48992b27e465d38fc, type: 2}
+  _OnPlayerCaught: {fileID: 11400000, guid: e59072964965ee94498e3bf665403ea6, type: 2}
+  _OnPlayerHeard: {fileID: 11400000, guid: de58de414dd329b43a1177bf1f70976e, type: 2}
 --- !u!222 &1215172320352318633
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2475,9 +2474,6 @@ MonoBehaviour:
   _PlayerRef: {fileID: 11400000, guid: 290f09a2087bfb9409033271c820a5b0, type: 2}
   _OnPlayerDetected: {fileID: 11400000, guid: 21155277423f9854fafbf508c22a94a0, type: 2}
   _OnPlayerLost: {fileID: 11400000, guid: 7579bb7003b37ad4ab3f226aa8d95c70, type: 2}
-  _OnPlayerHidden: {fileID: 11400000, guid: c35d8378a88d93e48992b27e465d38fc, type: 2}
-  _OnPlayerCaught: {fileID: 11400000, guid: e59072964965ee94498e3bf665403ea6, type: 2}
-  _OnPlayerHeard: {fileID: 11400000, guid: de58de414dd329b43a1177bf1f70976e, type: 2}
 --- !u!33 &7094368278420330058
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -18,6 +18,11 @@ public class GameStateSO : ScriptableObject
     public GameState CurrentState => _currentState;
     public Action<GameState> OnStateChanged;
 
+    private void OnEnable()
+    {
+        _currentState = GameState.Playing;
+    }
+
     public void SetState(GameState p_newState)
     {
         if (_currentState == p_newState)
