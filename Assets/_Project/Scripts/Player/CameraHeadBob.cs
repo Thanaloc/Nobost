@@ -18,6 +18,7 @@ public class CameraHeadBob : MonoBehaviour
         if (_CharacterController.velocity.sqrMagnitude > .1f)
         {
             _timer += Time.deltaTime;
+            _bobOffset = Mathf.Sin(_timer * _Player.BobFrequency) * _Player.BobAmplitude;
         }
 
         else
@@ -25,7 +26,5 @@ public class CameraHeadBob : MonoBehaviour
             _bobOffset = Mathf.Lerp(_bobOffset, 0f, LERP_INTERPOLATION * Time.deltaTime);
             _timer = 0f;
         }
-
-        _bobOffset = Mathf.Sin(_timer * _Player.BobFrequency) * _Player.BobAmplitude;
     }
 }
