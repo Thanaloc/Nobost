@@ -13,4 +13,8 @@ public class PlayerStateDataSO : ScriptableObject
     [Header("Camera")]
     public float CameraHeight;
     public float CameraTransitionSpeed;
+
+    [Header("Bob")]
+    public float BobFrequency;
+    public float BobAmplitude;
 }

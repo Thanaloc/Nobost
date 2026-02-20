@@ -17,3 +17,5 @@ MonoBehaviour:
   NoiseMultiplier: 5
   CameraHeight: 1.6
   CameraTransitionSpeed: 0
+  BobFrequency: 10
+  BobAmplitude: 0.01

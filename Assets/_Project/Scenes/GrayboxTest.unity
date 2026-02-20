@@ -1536,6 +1536,17 @@ Transform:
   - {fileID: 1803132116}
   m_Father: {fileID: 1331967411}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2030659695 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2127745864656515696, guid: f28e8a5981d98de46b6af04ae12dc546, type: 3}
+  m_PrefabInstance: {fileID: 1458334636}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a66fe84fb114b4a8e9158d17b08d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2126421807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,6 +1678,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1458334637}
         m_TargetAssemblyTypeName: PlayerNoiseEmitter, Assembly-CSharp
+        m_MethodName: OnPlayerStateChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2030659695}
+        m_TargetAssemblyTypeName: CameraHeadBob, Assembly-CSharp
         m_MethodName: OnPlayerStateChanged
         m_Mode: 1
         m_Arguments:

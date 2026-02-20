@@ -43,6 +43,15 @@ public class PlayerWalkState : IPlayerState
     {
 
     }
+    public float GetBobAmplitude()
+    {
+        return _data.BobAmplitude;
+    }
+
+    public float GetBobFrequency()
+    {
+        return _data.BobFrequency;
+    }
 
     public float GetNoiseMultiplier()
     {

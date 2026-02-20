@@ -15,6 +15,4 @@ MonoBehaviour:
   PlayerTransform: {fileID: 0}
   NoiseRadius: 0
   PlayerEyeHeight: 1
-  BobFrequency: 12
-  BobAmplitude: 0.01
   SprintFOVMultiplier: 0.17

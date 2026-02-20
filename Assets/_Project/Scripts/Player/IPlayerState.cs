@@ -6,4 +6,6 @@ public interface IPlayerState
     void Execute(PlayerStateMachine p_stateMachine);
     void Exit(PlayerStateMachine p_stateMachine);
     float GetNoiseMultiplier();
+    float GetBobAmplitude();
+    float GetBobFrequency();
 }

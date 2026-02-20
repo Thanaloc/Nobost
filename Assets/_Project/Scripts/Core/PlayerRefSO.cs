@@ -9,7 +9,5 @@ public class PlayerRefSO : ScriptableObject
 
     [Header("Precompiled Variables")]
     public float PlayerEyeHeight = 1.0f;
-    public float BobFrequency;
-    public float BobAmplitude;
     public float SprintFOVMultiplier = .17f;
 }
