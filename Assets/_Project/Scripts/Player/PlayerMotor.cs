@@ -3,15 +3,26 @@ using UnityEngine;
 public class PlayerMotor : MonoBehaviour
 {
     [SerializeField] private CharacterController _CharacterController;
+    [SerializeField] private Camera _Camera;
     [SerializeField] private Transform _CameraHolder;
     [SerializeField] private PlayerRefSO _PlayerRef;
 
     private float _verticalVelocity = 0f;
     private Vector3 _direction = new();
+    private const float LERP_DURATION = .2f;
+    private const float LERP_DURATION_FOV = .3f;
+    private Vector3 _targetHeight = new();
+    private float _targetFOV = 0f;
+    private float _defaultFOV = 0f;
+
+    private bool _isSprinting = false;
 
     private void Awake()
     {
         _PlayerRef.PlayerTransform = transform;
+        _targetHeight = _CameraHolder.localPosition;
+        _targetFOV = _Camera.fieldOfView;
+        _defaultFOV = _Camera.fieldOfView;
     }
 
     private void OnDisable()
@@ -21,6 +32,8 @@ public class PlayerMotor : MonoBehaviour
 
     private void Update()
     {
+        ApplyTargetFOV();
+        ApplyCameraHeight();
         ApplyGravity();
         ApplyMovement();
     }
@@ -29,8 +42,8 @@ public class PlayerMotor : MonoBehaviour
     {
         _direction = transform.right * p_input.x + transform.forward * p_input.y;
 
-        _direction.x = _direction.x * p_speed;
-        _direction.z = _direction.z * p_speed;
+        _direction.x *= p_speed;
+        _direction.z *= p_speed;
     }
 
     public void SetColliderHeight(float p_height)
@@ -41,7 +54,20 @@ public class PlayerMotor : MonoBehaviour
 
     public void SetCameraHeight(float p_height)
     {
-        _CameraHolder.localPosition = new Vector3(0, p_height, 0);
+        _targetHeight = new Vector3(0, p_height, 0);
+    }
+
+    public void SetTargetFOV(bool p_isSprinting)
+    {
+        if (p_isSprinting)
+        {
+            _targetFOV = _defaultFOV + _defaultFOV * _PlayerRef.SprintFOVMultiplier;
+        }
+
+        else 
+        {
+            _targetFOV = _defaultFOV;
+        }
     }
 
     public bool IsGrounded()
@@ -64,4 +90,15 @@ public class PlayerMotor : MonoBehaviour
         _CharacterController.Move(_direction * Time.deltaTime);
         _direction.x = _direction.z = 0f;
     }
+
+    private void ApplyCameraHeight()
+    {
+        _CameraHolder.localPosition = Vector3.Lerp(_CameraHolder.localPosition, _targetHeight, LERP_DURATION);
+    }
+
+    private void ApplyTargetFOV()
+    {
+        _Camera.fieldOfView = Mathf.Lerp(_Camera.fieldOfView, _targetFOV, LERP_DURATION_FOV);
+    }
+
 }

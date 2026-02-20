@@ -935,7 +935,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1512403668571050823, guid: f6d5a8a593f9ada4ca193b4ac07cb23a, type: 3}
+    - {fileID: 1754879988817279941, guid: f6d5a8a593f9ada4ca193b4ac07cb23a, type: 3}
+    - {fileID: 5964798054464387005, guid: f6d5a8a593f9ada4ca193b4ac07cb23a, type: 3}
+    - {fileID: 4543842366745931957, guid: f6d5a8a593f9ada4ca193b4ac07cb23a, type: 3}
+    - {fileID: 586088285289279901, guid: f6d5a8a593f9ada4ca193b4ac07cb23a, type: 3}
+    - {fileID: 2504748801349299518, guid: f6d5a8a593f9ada4ca193b4ac07cb23a, type: 3}
+    - {fileID: 5117068040349603564, guid: f6d5a8a593f9ada4ca193b4ac07cb23a, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6387236615865958487, guid: f6d5a8a593f9ada4ca193b4ac07cb23a, type: 3}
       insertIndex: -1
@@ -1001,13 +1008,9 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6754488885795112642, guid: f28e8a5981d98de46b6af04ae12dc546, type: 3}
-      propertyPath: _PlayerRef
-      value: 
-      objectReference: {fileID: 11400000, guid: 290f09a2087bfb9409033271c820a5b0, type: 2}
     - target: {fileID: 7018101922155260762, guid: f28e8a5981d98de46b6af04ae12dc546, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40.3
+      value: 19.68
       objectReference: {fileID: 0}
     - target: {fileID: 7018101922155260762, guid: f28e8a5981d98de46b6af04ae12dc546, type: 3}
       propertyPath: m_LocalPosition.y

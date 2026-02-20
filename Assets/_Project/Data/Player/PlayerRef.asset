@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: PlayerRef
   m_EditorClassIdentifier: 
   PlayerTransform: {fileID: 0}
+  NoiseRadius: 0
+  PlayerEyeHeight: 1
+  BobFrequency: 12
+  BobAmplitude: 0.05

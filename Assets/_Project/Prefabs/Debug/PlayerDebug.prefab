@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 5072300061434248753}
   - component: {fileID: 1525250445674288123}
   - component: {fileID: 6754488885795112642}
+  - component: {fileID: 2127745864656515696}
   m_Layer: 6
   m_Name: PlayerDebug
   m_TagString: Untagged
@@ -214,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _CharacterController: {fileID: 2945193182590306545}
+  _Camera: {fileID: 4378442657440599365}
   _CameraHolder: {fileID: 3245299884890344035}
   _PlayerRef: {fileID: 11400000, guid: 290f09a2087bfb9409033271c820a5b0, type: 2}
 --- !u!114 &6915880413713418902
@@ -275,6 +277,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _PlayerStateMachine: {fileID: 5072300061434248753}
+  _PlayerRef: {fileID: 11400000, guid: 290f09a2087bfb9409033271c820a5b0, type: 2}
+--- !u!114 &2127745864656515696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138441580522759732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9a66fe84fb114b4a8e9158d17b08d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _CharacterController: {fileID: 2945193182590306545}
+  _CameraHolder: {fileID: 3245299884890344035}
+  _Player: {fileID: 11400000, guid: 290f09a2087bfb9409033271c820a5b0, type: 2}
 --- !u!1 &1881719733982218276
 GameObject:
   m_ObjectHideFlags: 0
